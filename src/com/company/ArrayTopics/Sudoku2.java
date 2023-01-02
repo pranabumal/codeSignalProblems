@@ -1,4 +1,4 @@
-package com.company;
+package com.company.ArrayTopics;
 
 import java.util.HashSet;
 import java.util.Set;

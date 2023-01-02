@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.ArrayTopics.IsCryptSolution;
+import com.company.LinkListTopics.ListNode;
+import com.company.LinkListTopics.RemoveKFromList;
+
 import java.util.Arrays;
 
 public class Main {
@@ -41,8 +45,10 @@ public class Main {
                 {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
                 {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
 
-        IsCryptSolution isCryptSolution = new IsCryptSolution();
-        System.out.println(isCryptSolution.solution(crypt,solution));
+        RemoveKFromList removeKFromList = new RemoveKFromList();
+        ListNode data = new ListNode(crypt);
+
+//        System.out.println(removeKFromList.solution(crypt,solution));
     }
 
 }

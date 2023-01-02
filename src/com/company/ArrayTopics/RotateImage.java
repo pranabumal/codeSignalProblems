@@ -1,4 +1,4 @@
-package com.company;
+package com.company.ArrayTopics;
 
 public class RotateImage {
     int[][] solution(int[][] a) {

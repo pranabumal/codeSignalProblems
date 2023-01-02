@@ -1,9 +1,9 @@
-package com.company;
+package com.company.ArrayTopics;
 
 import java.util.HashMap;
 
 public class IsCryptSolution {
-    boolean solution(String[] crypt, char[][] solution) {
+    public boolean solution(String[] crypt, char[][] solution) {
 
         HashMap<Character, Integer> solutionHash= new HashMap<>();
         for(char[] data: solution){
