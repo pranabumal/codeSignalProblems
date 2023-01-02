@@ -9,11 +9,27 @@ public class Main {
         int[] array = new int[]{
                 2, 3, 2, 5, 3, 2, 4, 6, 6
         };
+
         int[][] multiDimensionArray = new int[][]{
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}
         };
+
+        String[] crypt = new String[]{
+                "SEND", "MORE", "MONEY"
+        };
+
+        char[][] solution = new char[][]{
+                {'O', '0'},
+                {'M', '1'},
+                {'Y', '2'},
+                {'E', '5'},
+                {'N', '6'},
+                {'D', '7'},
+                {'R', '8'},
+                {'S', '9'}
+            };
         char[][] grid = new char[][]{
                 {'.', '.', '.', '1', '4', '.', '.', '2', '.'},
                 {'.', '.', '6', '.', '.', '.', '.', '.', '.'},
@@ -25,8 +41,8 @@ public class Main {
                 {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
                 {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
 
-        Sudoku2 sudoku2 = new Sudoku2();
-        System.out.println(sudoku2.solution(grid));
+        IsCryptSolution isCryptSolution = new IsCryptSolution();
+        System.out.println(isCryptSolution.solution(crypt,solution));
     }
 
 }
