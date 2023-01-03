@@ -1,10 +1,8 @@
 package com.company;
 
-import com.company.ArrayTopics.IsCryptSolution;
-import com.company.LinkListTopics.ListNode;
+import com.company.LinkListTopics.LinkedList;
+import com.company.LinkListTopics.Node;
 import com.company.LinkListTopics.RemoveKFromList;
-
-import java.util.Arrays;
 
 public class Main {
 
@@ -46,9 +44,28 @@ public class Main {
                 {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
 
         RemoveKFromList removeKFromList = new RemoveKFromList();
-        ListNode data = new ListNode(crypt);
+        LinkedList linkedList = new LinkedList();
 
-//        System.out.println(removeKFromList.solution(crypt,solution));
+        linkedList.insertNode(4);
+        linkedList.insertNode(9);
+        linkedList.insertNode(3);
+        linkedList.insertNode(7);
+        linkedList.insertNode(6);
+        linkedList.insertNode(8);
+        linkedList.insertNode(7);
+        linkedList.insertNode(8);
+
+
+
+        Node<Integer> newLinkList = removeKFromList.solution(linkedList,7);
+
+        Node<Integer> current=((LinkedList) newLinkList).head;
+        while (current.next!=null){
+            System.out.println(current.value);
+            current=current.next;
+        }
+        System.out.println(current.value);
+
     }
 
 }
