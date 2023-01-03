@@ -5,6 +5,7 @@ import com.company.LinkListTopics.ListNode;
 import com.company.LinkListTopics.RemoveKFromList;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main {
 
@@ -45,9 +46,12 @@ public class Main {
                 {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
                 {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
 
-        RemoveKFromList removeKFromList = new RemoveKFromList();
-        ListNode data = new ListNode(crypt);
+        System.out.println(12/10);
 
+        int[] array1 = {0, 5, 6, 0, 0, 2, 5};
+
+        int[] filteredArray = Arrays.stream(array1).filter(num -> num != 0).toArray();
+        System.out.println(Arrays.toString(filteredArray));
 //        System.out.println(removeKFromList.solution(crypt,solution));
     }
 
