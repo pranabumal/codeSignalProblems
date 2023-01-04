@@ -1,8 +1,11 @@
 package com.company;
 
-import com.company.LinkListTopics.LinkedList;
-import com.company.LinkListTopics.Node;
+import com.company.ArrayTopics.IsCryptSolution;
+import com.company.LinkListTopics.ListNode;
 import com.company.LinkListTopics.RemoveKFromList;
+
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main {
 
@@ -43,29 +46,13 @@ public class Main {
                 {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
                 {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
 
-        RemoveKFromList removeKFromList = new RemoveKFromList();
-        LinkedList linkedList = new LinkedList();
+        System.out.println(12/10);
 
-        linkedList.insertNode(4);
-        linkedList.insertNode(9);
-        linkedList.insertNode(3);
-        linkedList.insertNode(7);
-        linkedList.insertNode(6);
-        linkedList.insertNode(8);
-        linkedList.insertNode(7);
-        linkedList.insertNode(8);
+        int[] array1 = {0, 5, 6, 0, 0, 2, 5};
 
-
-
-        Node<Integer> newLinkList = removeKFromList.solution(linkedList,7);
-
-        Node<Integer> current=((LinkedList) newLinkList).head;
-        while (current.next!=null){
-            System.out.println(current.value);
-            current=current.next;
-        }
-        System.out.println(current.value);
-
+        int[] filteredArray = Arrays.stream(array1).filter(num -> num != 0).toArray();
+        System.out.println(Arrays.toString(filteredArray));
+//        System.out.println(removeKFromList.solution(crypt,solution));
     }
 
 }
