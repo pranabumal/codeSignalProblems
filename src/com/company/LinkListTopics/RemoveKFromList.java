@@ -19,4 +19,20 @@ public class RemoveKFromList {
         ((LinkedList) l).size--;
         return l;
     }
+
+    public ListNode<Integer> removekFromList(ListNode<Integer> l, int k) {
+        ListNode<Integer> temp = new ListNode<>(-1);
+        temp.next = l;
+        ListNode<Integer> cur=l;
+        ListNode<Integer> prev=temp;
+        while (cur != null) {
+            if (cur.value == k) {
+                prev.next = cur.next;
+            } else {
+                prev = cur;
+            }
+            cur = cur.next;
+        }
+        return temp.next;
+    }
 }

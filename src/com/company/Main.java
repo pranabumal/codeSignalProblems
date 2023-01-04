@@ -1,11 +1,10 @@
 package com.company;
 
-import com.company.ArrayTopics.IsCryptSolution;
+import com.company.LinkListTopics.IsListPalindrome;
 import com.company.LinkListTopics.ListNode;
 import com.company.LinkListTopics.RemoveKFromList;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class Main {
 
@@ -22,7 +21,7 @@ public class Main {
         };
 
         String[] crypt = new String[]{
-                "SEND", "MORE", "MONEY"
+                "cba","daf","ghi"
         };
 
         char[][] solution = new char[][]{
@@ -46,13 +45,25 @@ public class Main {
                 {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
                 {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
 
-        System.out.println(12/10);
+//        System.out.println(12/10);
+//
+//        int[] array1 = {0, 5, 6, 0, 0, 2, 5};
+//
+//        int[] filteredArray = Arrays.stream(array1).filter(num -> num != 0).toArray();
+//        System.out.println(Arrays.toString(filteredArray));
+////        System.out.println(removeKFromList.solution(crypt,solution));
+//
+//        MinimumDelation minimumDelation = new MinimumDelation();
+//        System.out.println(minimumDelation.minDeletionSize(crypt));
 
-        int[] array1 = {0, 5, 6, 0, 0, 2, 5};
+        RemoveKFromList removeKFromList = new RemoveKFromList();
+        IsListPalindrome isListPalindrome = new IsListPalindrome();
+        ListNode<Integer> listNode = new ListNode<>(3);
+        listNode.next = new ListNode<>(4);
+        listNode.next.next = new ListNode<>(5);
 
-        int[] filteredArray = Arrays.stream(array1).filter(num -> num != 0).toArray();
-        System.out.println(Arrays.toString(filteredArray));
-//        System.out.println(removeKFromList.solution(crypt,solution));
+//        removeKFromList.removekFromList(listNode,4);
+        isListPalindrome.solution(listNode);
     }
 
 }
