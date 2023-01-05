@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.LinkListTopics.AddTwoHugeNumbers;
 import com.company.LinkListTopics.IsListPalindrome;
 import com.company.LinkListTopics.ListNode;
 import com.company.LinkListTopics.RemoveKFromList;
@@ -56,14 +57,18 @@ public class Main {
 //        MinimumDelation minimumDelation = new MinimumDelation();
 //        System.out.println(minimumDelation.minDeletionSize(crypt));
 
-        RemoveKFromList removeKFromList = new RemoveKFromList();
-        IsListPalindrome isListPalindrome = new IsListPalindrome();
-        ListNode<Integer> listNode = new ListNode<>(3);
-        listNode.next = new ListNode<>(4);
-        listNode.next.next = new ListNode<>(5);
+//        RemoveKFromList removeKFromList = new RemoveKFromList();
+//        IsListPalindrome isListPalindrome = new IsListPalindrome();
+        AddTwoHugeNumbers addTwoHugeNumbers = new AddTwoHugeNumbers();
+        ListNode<Integer> listNode_1 = new ListNode<>(123);
+        listNode_1.next = new ListNode<>(4);
+        listNode_1.next.next = new ListNode<>(5);
+        ListNode<Integer> listNode_2 = new ListNode<>(100);
+        listNode_2.next = new ListNode<>(100);
+        listNode_2.next.next = new ListNode<>(100);
 
 //        removeKFromList.removekFromList(listNode,4);
-        isListPalindrome.solution(listNode);
+        System.out.println(addTwoHugeNumbers.solution(listNode_1,listNode_2));
     }
 
 }
