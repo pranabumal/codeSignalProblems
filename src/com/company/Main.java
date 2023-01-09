@@ -57,18 +57,27 @@ public class Main {
 //        MinimumDelation minimumDelation = new MinimumDelation();
 //        System.out.println(minimumDelation.minDeletionSize(crypt));
 
-//        RemoveKFromList removeKFromList = new RemoveKFromList();
+//        RemoveKFromList removeKFromList = new RemoveKFromList(); 9876, 5432, 1999
 //        IsListPalindrome isListPalindrome = new IsListPalindrome();
         AddTwoHugeNumbers addTwoHugeNumbers = new AddTwoHugeNumbers();
-        ListNode<Integer> listNode_1 = new ListNode<>(123);
-        listNode_1.next = new ListNode<>(4);
-        listNode_1.next.next = new ListNode<>(5);
-        ListNode<Integer> listNode_2 = new ListNode<>(100);
-        listNode_2.next = new ListNode<>(100);
-        listNode_2.next.next = new ListNode<>(100);
+        ListNode<Integer> listNode_1 = new ListNode<>(1);
+//        listNode_1.next = new ListNode<>(5432);
+//        listNode_1.next.next = new ListNode<>(1999);
+        ListNode<Integer> listNode_2 = new ListNode<>(9999);
+        listNode_2.next = new ListNode<>(9999);
+        listNode_2.next.next = new ListNode<>(9999);
+        listNode_2.next.next.next = new ListNode<>(9999);
+        listNode_2.next.next.next.next = new ListNode<>(9999);
+        listNode_2.next.next.next.next.next = new ListNode<>(9999);
+
+        ListNode<Integer> result = addTwoHugeNumbers.solution(listNode_1,listNode_2);
+        while (result !=null){
+            System.out.println(result.value);
+            result=result.next;
+        }
 
 //        removeKFromList.removekFromList(listNode,4);
-        System.out.println(addTwoHugeNumbers.solution(listNode_1,listNode_2));
+//        System.out.println(addTwoHugeNumbers.solution(listNode_1,listNode_2));
     }
 
 }
