@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.LinkListTopics.AddTwoHugeNumbers;
-import com.company.LinkListTopics.IsListPalindrome;
-import com.company.LinkListTopics.ListNode;
-import com.company.LinkListTopics.RemoveKFromList;
+import com.company.LinkListTopics.*;
 
 import java.util.Arrays;
 
@@ -59,18 +56,19 @@ public class Main {
 
 //        RemoveKFromList removeKFromList = new RemoveKFromList(); 9876, 5432, 1999
 //        IsListPalindrome isListPalindrome = new IsListPalindrome();
-        AddTwoHugeNumbers addTwoHugeNumbers = new AddTwoHugeNumbers();
+        MergeTwoLinkedLists mergeTwoLinkedLists = new MergeTwoLinkedLists();
         ListNode<Integer> listNode_1 = new ListNode<>(1);
-//        listNode_1.next = new ListNode<>(5432);
-//        listNode_1.next.next = new ListNode<>(1999);
-        ListNode<Integer> listNode_2 = new ListNode<>(9999);
-        listNode_2.next = new ListNode<>(9999);
-        listNode_2.next.next = new ListNode<>(9999);
-        listNode_2.next.next.next = new ListNode<>(9999);
-        listNode_2.next.next.next.next = new ListNode<>(9999);
-        listNode_2.next.next.next.next.next = new ListNode<>(9999);
+        listNode_1.next = new ListNode<>(1);
+        listNode_1.next.next = new ListNode<>(2);
+        listNode_1.next.next.next = new ListNode<>(4);
+        ListNode<Integer> listNode_2 = new ListNode<>(0);
+        listNode_2.next = new ListNode<>(3);
+        listNode_2.next.next = new ListNode<>(5);
+//        listNode_2.next.next.next = new ListNode<>(9999);
+//        listNode_2.next.next.next.next = new ListNode<>(9999);
+//        listNode_2.next.next.next.next.next = new ListNode<>(9999);
 
-        ListNode<Integer> result = addTwoHugeNumbers.solution(listNode_1,listNode_2);
+        ListNode<Integer> result = mergeTwoLinkedLists.solution(listNode_1,listNode_2);
         while (result !=null){
             System.out.println(result.value);
             result=result.next;
