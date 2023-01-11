@@ -13,12 +13,36 @@ public class MergeTwoLinkedLists {
     public ListNode<Integer> head;
 
     public ListNode<Integer> solution(ListNode<Integer> l1, ListNode<Integer> l2) {
-
+        if(l2==null){
+            return l1;
+        }else if(l1 == null){
+            return l2;
+        }
         while (l1!=null){
-
+                if(l2==null){
+                    insertNode(l1.value);
+                    l1=l1.next;
+                }
+               while (l2!=null){
+                   if(l1==null){
+                       insertNode(l2.value);
+                       l2=l2.next;
+                   }else if(l1.value<l2.value){
+                       insertNode(l1.value);
+                       l1=l1.next;
+                   }else if(l1.value.equals(l2.value)){
+                       insertNode(l1.value);
+                       insertNode(l2.value);
+                       l1=l1.next;
+                       l2=l2.next;
+                   }else {
+                       insertNode(l2.value);
+                       l2=l2.next;
+                   }
+               }
         }
 
-        return l1;
+        return head;
     }
 
     public void insertNode(Integer item) {
