@@ -16,24 +16,65 @@ public class ReverseNodesInKGroups {
         if(k==1){
             return l;
         }
-        ListNode<Integer> node = null;
-        ListNode<Integer> current=l;
-        while (current!=null){
-                node=current.next;
-                current.next=node;
-                current=node;
-               l=node;
+        int length=getCountRec(l);
+        int loop=length/k;
+        ListNode<Integer> current = l;
+        ListNode<Integer> prev = null;
+        ListNode<Integer> next;
+        int r=1;
+        int b=1;
+        int f=k;
+        while(current != null) {
+            if(loop>=b){
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }else {
+                break;
+            }
+            if(r==f){
+                while(prev != null) {
+                    insertNode(prev.value);
+                    prev=prev.next;
+                }
+                f=f+k;
+                b++;
+            }
+            r++;
         }
-//        ListNode<Integer> prev = null;
-//        ListNode<Integer> current = l;
-//
-//        while(current != null) {
-//            ListNode<Integer> next = current.next;
-//            current.next = prev;
-//            prev = current;
-//            current = next;
-//        }
-        return l;
+        while(current != null) {
+            insertNode(current.value);
+            current=current.next;
+        }
+        return head;
+    }
+    public int getCountRec(ListNode<Integer> node)
+    {
+        // Base case
+        if (node == null)
+            return 0;
+
+        // Count is this node plus rest of the list
+        return 1 + getCountRec(node.next);
+    }
+    public void insertNode(Integer item) {
+        ListNode<Integer> node = new ListNode<>(null);
+        node.value = item;
+        ListNode<Integer> current = this.head;
+
+        if (this.head == null) {
+            this.head = node;
+            this.head.next = null;
+            System.out.println(this.head.toString());
+        } else {
+
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
+            node.next = null;
+        }
     }
     public ListNode<Integer> reversSinglyLinkList(ListNode<Integer> l) {
 
