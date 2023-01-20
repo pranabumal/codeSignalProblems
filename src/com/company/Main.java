@@ -73,7 +73,7 @@ public class Main {
 //        listNode_2.next.next.next.next = new ListNode<>(9999);
 //        listNode_2.next.next.next.next.next = new ListNode<>(9999);
 
-        ListNode<Integer> result = rearrangeLastN.solution(listNode_1,3);
+        ListNode<Integer> result = rearrangeLastN.solution(listNode_1,2);
         while (result !=null){
             System.out.println(result.value);
             result=result.next;
