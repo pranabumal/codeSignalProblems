@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+
         String string = "ngrhhqbhnsipkcoqjyviikvxbxyphsnjpdxkhtadltsuxbfbrkof";
         int[] array = new int[]{
                 2, 3, 2, 5, 3, 2, 4, 6, 6
@@ -56,7 +57,7 @@ public class Main {
 
 //        RemoveKFromList removeKFromList = new RemoveKFromList(); 9876, 5432, 1999
 //        IsListPalindrome isListPalindrome = new IsListPalindrome();
-        RearrangeLastN rearrangeLastN = new RearrangeLastN();
+        MiddleNode middleNode = new MiddleNode();
         ListNode<Integer> listNode_1 = new ListNode<>(1);
         listNode_1.next = new ListNode<>(2);
         listNode_1.next.next = new ListNode<>(3);
@@ -73,7 +74,7 @@ public class Main {
 //        listNode_2.next.next.next.next = new ListNode<>(9999);
 //        listNode_2.next.next.next.next.next = new ListNode<>(9999);
 
-        ListNode<Integer> result = rearrangeLastN.solution(listNode_1,2);
+        ListNode result = middleNode.middleNode(listNode_1);
         while (result !=null){
             System.out.println(result.value);
             result=result.next;
