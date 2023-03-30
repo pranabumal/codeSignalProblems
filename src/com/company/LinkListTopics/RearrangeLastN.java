@@ -4,31 +4,29 @@ public class RearrangeLastN {
     public ListNode<Integer> head;
     public ListNode<Integer> solution(ListNode<Integer> l, int n) {
 
-        if(n==0){
+        if (l == null || l.next == null || n <= 0) {
             return l;
         }
-        int count=getCountRec(l);
-        ListNode<Integer> node = l;
-        while (node!=null){
-            node=node.next;
-            if(node.next==null){
-                node.next=l;
-                break;
-            }
+
+        ListNode<Integer> tail = l;
+        int length = 1;
+        while (tail.next != null) {
+            tail = tail.next;
+            length++;
         }
-        int j=0;
-        while (node!=null){
-            if(j==count){
-                node.next=null;
-                break;
-            }
-            insertNode(node.value);
-            node=node.next;
-            j++;
+        tail.next = l;
+
+        int breakPoint = length - n % length;
+        ListNode<Integer> newHead = l;
+        for (int i = 1; i < breakPoint; i++) {
+            newHead = newHead.next;
         }
 
+        ListNode<Integer> newTail = newHead;
+        newHead = newHead.next;
+        newTail.next = null;
 
-        return head;
+        return newHead;
     }
     public int getCountRec(ListNode<Integer> node)
     {
