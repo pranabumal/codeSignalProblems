@@ -1,6 +1,6 @@
 package com.company.DataStructure;
 
-public class Stack {
+public class Stack<I extends Number> {
     private final int[] arr;
     private int top;
     private final int capacity;

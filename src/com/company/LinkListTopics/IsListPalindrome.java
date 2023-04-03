@@ -13,7 +13,7 @@ public class IsListPalindrome {
             current = current.next;
             size++;
         }
-        Stack stack = new Stack(size);
+        Stack<Number> stack = new Stack<Number>(size);
 
         while(cf != null) {
             stack.push(cf.value);
