@@ -79,3 +79,47 @@ In the Sales department:
 - Sam earns the second-highest salary
 - There is no third-highest salary as there are only two employees*/
 
+select
+    d.name as Department, e.name as Employee, e.salary as Salary
+from employee e
+
+left join department d on d.id=e.departmentId
+
+right outer join
+
+(
+select max(e.salary) as max, e.departmentId
+from employee e
+where ((e.salary , e.departmentId) not in (select max(e.salary) as max, e.departmentId
+                       from employee e
+                       where (e.salary , e.departmentId) not in (select max(e.salary) as max, e.departmentId
+                                              from employee e
+                                              group by e.departmentId)
+                       group by e.departmentId)
+and (e.salary , e.departmentId) not in (select max(e.salary) as max, e.departmentId
+                     from employee e
+                     group by e.departmentId))
+group by e.departmentId
+
+UNION
+
+select max(e.salary) as max, e.departmentId
+from employee e
+where (e.salary , e.departmentId) not in (select max(e.salary) as max, e.departmentId
+                              from employee e
+                              group by e.departmentId)
+group by e.departmentId
+
+UNION
+
+select max(e.salary) as max, e.departmentId
+from employee e
+group by e.departmentId) data on data.departmentId=e.departmentId and data.max = e.salary
+
+
+
+SELECT d.name as Department, t.name as Employee, t.salary as Salary
+from (select *, dense_rank() over( partition by departmentId order by salary desc) rk
+      from employee)t
+         join department d on t.departmentId = d.id
+where rk <= 3
