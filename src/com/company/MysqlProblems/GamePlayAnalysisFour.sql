@@ -11,57 +11,42 @@
 (player_id, event_date) is the primary key of this table.
 This table shows the activity of players of some games.
 Each row is a record of a player who logged in and played a number of games (possibly 0) before logging out on someday using some device.
+ 
 
-
-Write an SQL query to report the first login date for each player.
-
-Return the result table in any order.
+Write an SQL query to report the fraction of players that logged in again on the day after the day they first logged in, rounded to 2 decimal places. In other words, you need to count the number of players that logged in for at least two consecutive days starting from their first login date, then divide that number by the total number of players.
 
 The query result format is in the following example.
 
-
+ 
 
 Example 1:
 
-Input:
+Input: 
 Activity table:
 +-----------+-----------+------------+--------------+
 | player_id | device_id | event_date | games_played |
 +-----------+-----------+------------+--------------+
 | 1         | 2         | 2016-03-01 | 5            |
-| 1         | 2         | 2016-05-02 | 6            |
+| 1         | 2         | 2016-03-02 | 6            |
 | 2         | 3         | 2017-06-25 | 1            |
 | 3         | 1         | 2016-03-02 | 0            |
 | 3         | 4         | 2018-07-03 | 5            |
 +-----------+-----------+------------+--------------+
-Output:
-+-----------+-------------+
-| player_id | first_login |
-+-----------+-------------+
-| 1         | 2016-03-01  |
-| 2         | 2017-06-25  |
-| 3         | 2016-03-02  |
-+-----------+-------------+*/
+Output: 
++-----------+
+| fraction  |
++-----------+
+| 0.33      |
++-----------+
+Explanation: 
+Only the player with id 1 logged back in after the first day he had logged in so the answer is 1/3 = 0.33*/
 
 -- SOLUTION --------------------------------------->>>>
 
-
 select
-    a.player_id, min(a.event_date) as first_login
-from activity a
-group by a.player_id
-
-
-
-
-
-select
-    a.player_id, a.event_date as first_login
-from activity a
-where (a.player_id,a.event_date) not in (
-    select
-         a.player_id, a.event_date as first_login
-        from activity a , activity a2
-        where a.player_id=a2.player_id and a.event_date > a2.event_date
-        group by a.player_id, a.event_date);
-
+    IFNULL(ROUND(sum(if(a.player_id,1,0))/(select count(DISTINCT a.player_id) from activity a),2),0)as fraction
+from (select
+          a.player_id, min(a.event_date) as firstLogin
+      from activity a
+      group by a.player_id) d , activity a
+where a.player_id = d.player_id and DATE_ADD(d.firstLogin, INTERVAL 1 DAY) = a.event_date;
